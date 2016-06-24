@@ -10,6 +10,7 @@ setup(
     license='ISC License',
     description='netcat over websockets',
     author='Blair Mason',
+    author_email='robert.blair.mason@gmail.com',
     url='https://github.com/rbmj/wsnc',
-    scripts='wsnc/wsnc',
+    scripts=['wsnc/wsnc'],
     install_requires=['autobahn'])
