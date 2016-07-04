@@ -67,11 +67,13 @@ def main():
 
     loop = asyncio.get_event_loop()
     cli = loop.create_connection(factory, host, port)
-    loop.run_until_complete(cli)
     try:
+        loop.run_until_complete(cli)
         loop.run_forever()
     except KeyboardInterrupt:
         pass
+    except ConnectionRefusedError:
+        print('ERROR: Connection Refused', file=sys.stderr)
     finally:
         if read_task is not None:
             read_task.cancel()
